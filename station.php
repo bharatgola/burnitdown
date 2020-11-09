@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php include('include.php');
+?>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <!-- <script src='https://kit.fontawesome.com/a076d05399.js'></script>-->
+ 
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 600px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #4d4d4d;
+      height: 100%;
+    }
+        .well{
+          background-color: #ccff99;
+        }
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;} 
+    }
+     .top {
+  overflow: hidden;
+  background-color: #333;
+}
+.top a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.top a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.top .search-container {
+  float: right;
+}
+
+.top input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.top .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.top .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .top .search-container {
+    float: none;
+  }
+  .top a, .top input[type=text], .top .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .top input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+.dash{
+  background-color: #77ff33;
+  font-family: sans-serif;
+}
+.col-sm-3.sidenav.hidden-xs{
+  background-color:#333333 ;
+}
+.drpbtn{
+  background-color: #0066ff;
+  font-size: 40px;
+}
+ main {display: flex;}
+main > * {border: 1px solid;}
+table {border-collapse: collapse; font-family: sans-serif;}
+td, th {border:  1px solid;
+      padding: 10px;
+      min-width: 165px;
+      background: white;        
+      box-sizing: border-box;
+      text-align: center;
+}
+.class-container {
+  position: relative;
+  max-height: 800px;
+  width: 1000px;
+  overflow: scroll;
+}
+
+thead th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: hsl(20, 50%, 70%);
+}
+
+thead th:first-child {
+  left: 0;
+  z-index: 3;
+}
+.button{
+  background-color: #3399ff;
+  color: white;
+}
+.block{
+  padding-bottom : 20px;
+  background-color: #99ff66;
+  color:#404040;
+  text-align: center;
+}
+  </style>
+}
+
+</head>
+<body>
+<div class="top">
+<a href="" class="dash">Dashboard</a>
+<a href="">Home</a>
+<a href="">contact</a>
+<a href="">About</a>
+<div class="search-container">
+    <form action="">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div> 
+
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <h1>Logo</h1>
+      <ul class="nav nav-pills nav-stacked">
+        <div class="dropdown"></div>
+        <li class="active"><a href="jquery.html">Dashboard</a></li> 
+       <li><a href="user.html"><i class="fa fa-user" style="font-size: 30px;"></i>   User Profile</a></li>
+        <li><a href="management.html"><i class="  fa fa-file-o" style="font-size: 30px;"></i>  User Management</a></li>
+      <li><a href="station.html"><i class="fa fa-bookmark-o" style="font-size: 30px;"></i> station Management</a></li>
+        <li><a href="penalty.html"><i class="fa fa-stop-circle" style="font-size: 30px;"></i>     Payment</a></li>
+        <li><a href="booking.html"><i class="fa fa-book" style="font-size: 30px;"></i>     Booking</a></li>
+        <li><a href="report.php"><i class="fa fa-bell-o" style="font-size: 30px;"></i>     sales to report</a></li>
+        <li><a href="cart.php"><i class="fa fa-anchor" style="font-size: 30px;"></i>   Add to Cart</a></li>
+      </ul><br>
+    </div>
+    <br>
+    <div class="block"><h1>station Management</h1></div>
+
+      <div class="class-container">
+        <div class="user">
+          <table class="fixed">
+            <thead>
+              <tr><th>Serial No.</th><th>customer id</th><th>Add to product</th><th>stock rate(%)</th><th>Booking ID</th><th>Rating</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>1</th><td>330</td><td><input type="button" value="+" onclick="button1()" class="button" />
+                <span id="output"></span>
+                <input type="button" value="-" onclick="button2()" class="button" />
+              </td><td>61%</td><td>1007354296</td><td><i class="fa fa-star" style="color:orange;"></i><i class="fa fa-star" style="color:orange;"></i><i class="fa fa-star" style="color:orange;"></i></tr>
+              
+          </table>
+<script type="text/javascript">
+  var x = 0;
+
+document.getElementById('#output').innerHTML = x;
+
+function button1() {
+  document.getElementById('#output').innerHTML = ++x;
+}
+
+function button2() {
+  document.getElementById('#output').innerHTML = --x;
+}
+</script>
+ <!--<script type="text/javascript">
+ // function butto{  }
+ // function butto(){
+ //   localStorage.setItem();
+ // }
+</script>  -->
+</body>
+</html>

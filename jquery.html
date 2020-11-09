@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+ <!-- <script src='https://kit.fontawesome.com/a076d05399.js'></script>-->
+ 
+  <style>
+   .body{
+    font-family: Arial black;
+   }
+    .row.content {height: 600px}
+  
+    .sidenav {
+      background-color: #4d4d4d;
+      height: 100%;
+    }
+        .well{
+          background-color: #ccff99;
+        }
+   
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;} 
+    }
+     .top {
+  overflow: hidden;
+  background-color: #333;
+}
+.top a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.top a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.top .search-container {
+  float: right;
+}
+
+.top input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.top .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.top .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .top .search-container {
+    float: none;
+  }
+  .top a, .top input[type=text], .top .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .top input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+.dash{
+  background-color: #77ff33;
+  font-family: sans-serif;
+}
+.col-sm-3.sidenav.hidden-xs{
+  background-color:#333333 ;
+}
+.drpbtn{
+  background-color: #0066ff;
+  font-size: 40px;
+}
+ .four{
+  padding: 10px;
+  padding-bottom: 14px;
+ }
+ .far.fa-arrow-alt-circle-right{
+  position: left;
+  float: center;
+ }
+ .fa.fa-comment  {
+  color: #00ffff;
+ }
+ .open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+  float: left;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+  </style>
+  <script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div class="top">
+<a href="" class="dash">Dashboard</a>
+<a href="page.php">Home</a>
+<a href="alert.html">contact</a>
+<a href="about.html">About</a>
+ <button class="four" onclick="window.location.href ='http://localhost/practice/error.php';"><i class="fa fa-sign-out" style="font-size: 24px;"></i>Log out!</button>
+<div class="search-container">
+    <form action="">
+   <!--   <button onclick="window.location.href = 'error.php';">Log out!</button>-->
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div> 
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <h1>Logo</h1>
+      <ul class="nav nav-pills nav-stacked">
+        <div class="dropdown"></div>
+        <li class="active"><a href="jquery.html">Dashboard</a></li> 
+       <li><a href="user.html"><i class="fa fa-user" style="font-size: 30px;"></i>   User Profile</a></li>
+        <li><a href="management.html"><i class="fa fa-file-o" style="font-size: 30px;"></i>  User Management</a></li>
+      <li><a href="station.html"><i class="fa fa-bookmark-o" style="font-size: 30px;"></i> station Management</a></li>
+        <li><a href="penalty.html"><i class="fa fa-stop-circle" style="font-size: 30px;"></i>     Payment</a></li>
+        <li><a href="booking.html"><i class="fa fa-book" style="font-size: 30px;"></i>     Booking</a></li>
+        <li><a href="report.php"><i class="  fa fa-bell-o" style="font-size: 30px;"></i>     sales to report</a></li>
+        <li><a href="cart.php"><i class="fa fa-anchor" style="font-size: 30px;"></i>   Add to Cart</a></li>
+      </ul><br><br>
+      <li><a href="" class="open-button" onclick="openForm()">
+        <div class="chat-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type message.." name="msg" required></textarea>
+
+    <button type="submit" class="btn">Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+        <i class="fa fa-comment" style="font-size: 30px"></i>chat</a></li>
+    </div>
+    <br>
+    
+    <div class="col-sm-9">
+      <div class="well">
+        <h2><i class="fa fa-dashboard" style="font-size: 40px;"></i>Dashboard</h2>
+        <p>Welcome to the admin panel dashboard..!!</p>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+            <h4><i class="fa fa-user" style="font-size: 40px;"></i>   Users</h4>
+            <p>Data value</p> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4><i class="fa fa-address-card" style="font-size: 40px;"></i>  customer</h4>
+            <p>sales report</p> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4><i class="fa fa-calendar" style="font-size:40px;"></i>Sessions</h4>
+            <p>start with the sesssion</p> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4><i class="fas fa-cookie-bite" style="font-size:40px;"></i>cookies</h4>
+            <p>server</p> 
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="well">
+            <p><i class="fa fa-line-chart" style="font-size: 40px;"></i>Graph</p> 
+            <p>Chart</p> 
+            <p>Diagram</p> 
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <p><i class="fa fa-cc-visa" style="font-size: 40px;"></i>  Available</p> 
+            <p>Payment method</p> 
+            <p>Operational method</p> 
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <p><i class="fa fa-shopping-cart" style="font-size: 40px;"></i>status</p> 
+            <p>value cart</p> 
+            <p>Availablity</p> 
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="well">
+            <p><i class="fa fa-pencil" style="font-size: 30px;"></i>Ground report</p> 
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <p><i class="fa fa-sign-out" style="font-size: 30px;"></i>Logout thing</p> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
