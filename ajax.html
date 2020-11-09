@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>html</title>
+</head>
+<body>
+</html>
+<form id="frmDemo" method="post">
+   <div class="input-group">Name </div>
+   <div>
+        <input type="text" name="name" id="name" class="input-control" />
+   </div>
+    
+   <div class="input-group">Message </div>
+   <div>
+    <textarea name="comment" id="comment" class="input-control"></textarea>
+   </div>
+
+   <div style="float:left">
+        <button type="submit" name="btn-submit" id="btn-submit">Submit</button>
+    </div>
+  <div id="error_message" class="ajax_response" style="float:left"></div>
+  <div id="success_message" class="ajax_response" style="float:left"></div>
+</form> 
+<script>
+$("#frmDemo").submit(function(e) {
+  e.preventDefault();
+  var name = $("#name").val();
+  var comment = $("#comment").val();
+  
+  if(name == "" || comment == "" ) {
+    $("#error_message").show().html("All Fields are Required");
+  } else {
+    $("#error_message").html("").hide();
+    $.ajax({
+      type: "POST",
+      url: "post-form.php",
+      data: "name="+name+"&comment="+comment,
+      success: function(data){
+        $('#success_message').fadeIn().html(data);
+        setTimeout(function() {
+          $('#success_message').fadeOut("slow");
+        }, 2000 );
+
+      }
+    });
+  }
+})
+</script> 
+</body>
+</html>

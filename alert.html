@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>cont</title>
+</head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<body>
+
+  <div class="alert alert-success alert-dismissible" id="success" style="display:none;">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+  </div>
+<form class="form" action="" method="post" id="fupForm">
+  <h2 >CONTACT US</h2>
+  <p type="Name:" ><input placeholder="Write your name here.." id="name" type="text"></p>
+  <p type="Email:" ><input placeholder="Let us know how to contact you back.." id="email"></input></p>
+  <p type="Message:" ><input placeholder="What would you like to tell us.." id="message"></input></p>
+  <a href ="jquery.html" style="color:#595959 ;font-size:18px"><i class="fa fa-sign-out"> Back</i></a>
+  <button id="butsave" class="btn">Send Message</button>
+  <div>
+    <span class="fa fa-phone"></span>172 1023 567
+    <span class="fa fa-envelope-o"></span> bharat@webguruz.co.in
+  </div>
+</form>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#butsave').on('click', function(e) {
+    e.preventDefault();
+    var name = $('#name').val();
+    var email = $('#email').val();
+    var message = $('#message').val();
+    if(name!="" && email!="" && message!="" ){
+      $.ajax({
+        url: "book.php",
+        type: "POST",
+        data: {
+          name: name,
+          email: email,
+          message: message       
+        },
+        cache: false,
+        success: function(dataResult){
+          var dataResult = JSON.parse(dataResult);
+          if(dataResult.statusCode==200){
+            $("#butsave").removeAttr("disabled");
+            $('#fupForm').find('input:text').val('');
+            $("#success").show();
+            $('#success').html('Data added successfully !');            
+          }
+          else if(dataResult.statusCode==201){
+             alert("Error occured !");
+          }
+          
+        }
+      });
+    }
+    else{
+      alert('Please fill all the field !');
+    }
+  });
+});
+</script>
+<style type="text/css">                     
+  body{
+    background:#59ABE3;
+    margin:0
+  }
+.form{
+  width:340px;
+  height:440px;
+  background:#e6e6e6;
+  border-radius:8px;
+  box-shadow:0 0 40px -10px #000;
+  margin:calc(50vh - 220px) auto;
+  padding:20px 30px;
+  max-width:calc(100vw - 40px);
+  box-sizing:border-box;
+  font-family:'Montserrat',sans-serif;
+  position:relative
+}
+h2{margin:10px 0;
+  padding-bottom:10px;
+  width:180px;
+  color:#78788c;
+  border-bottom:3px solid #78788c
+}
+input
+{
+  width:100%;
+  padding:10px;
+  box-sizing:border-box;
+  background:none;
+  outline:none;
+  resize:none;
+  border:0;
+  font-family:'Montserrat',sans-serif;
+  transition:all .3s;border-bottom:2px solid #bebed2
+}
+input:focus{
+  border-bottom:2px solid #78788c
+}
+p:before
+{
+  content:attr(type);
+  display:block;
+  margin:28px 0 0;
+  font-size:14px;
+  color:#5a5a5a
+}
+button{float:right;
+  padding:8px 12px;
+  margin:8px 0 0;
+  font-family:'Montserrat',sans-serif;
+  border:2px solid #78788c;
+  background:0;
+  color:#5a5a6e; 
+  cursor:pointer;transition:all .3s
+}
+button:hover{
+  background:#78788c;
+  color:#fff
+}
+div{content:'Hi';
+position:absolute;bottom:-15px;
+right:-20px;
+background:#50505a;
+color:#fff;
+width:320px;
+padding:16px 4px 16px 0;
+border-radius:6px;font-size:13px;
+box-shadow:10px 10px 40px -14px #000}
+span{
+  margin:0 5px 0 15px
+}
+</style>
+</body>
+</html>
